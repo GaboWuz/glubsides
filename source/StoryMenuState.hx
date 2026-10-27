@@ -139,7 +139,7 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 124");
 
-		sprDifficulty = new FlxSprite(leftArrow.x + 130, leftArrow.y);
+		sprDifficulty = new FlxSprite(grpWeekText.members[0].x + grpWeekText.members[0].width + 140, grpWeekText.members[0].width + 10, grpWeekText.members[0].y + 10);
 		sprDifficulty.frames = ui_tex;
 		sprDifficulty.animation.addByPrefix('easy', 'EASY');
 		sprDifficulty.animation.addByPrefix('normal', 'NORMAL');
@@ -167,7 +167,7 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 165");
 		
-		#if mobile addVPad(FULL, A_B); #end
+		#if mobile addVPad(LEFT_RIGHT, A_B); #end
 
 		super.create();
 	}
@@ -292,14 +292,14 @@ class StoryMenuState extends MusicBeatState
 		sprDifficulty.alpha = 0;
 
 		// USING THESE WEIRD VALUES SO THAT IT DOESNT FLOAT UP
-		sprDifficulty.y = leftArrow.y - 15;
+		sprDifficulty.y = grpWeekText.members[0].width + 10, grpWeekText.members[0].y + 10 - 15;
 		intendedScore = Highscore.getWeekScore(curWeek, curDifficulty);
 
 		#if !switch
 		intendedScore = Highscore.getWeekScore(curWeek, curDifficulty);
 		#end
 
-		FlxTween.tween(sprDifficulty, {y: leftArrow.y + 15, alpha: 1}, 0.07);
+		FlxTween.tween(sprDifficulty, {y: grpWeekText.members[0].width + 10, grpWeekText.members[0].y + 10 + 15, alpha: 1}, 0.07);
 	}
 
 	var lerpScore:Int = 0;
