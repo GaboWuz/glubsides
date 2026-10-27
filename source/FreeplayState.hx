@@ -138,7 +138,7 @@ class FreeplayState extends MusicBeatState
 			trace(md);
 		 */
 		
-		#if mobile addVPad(LEFT_RIGHT, A_B_C); #end
+		#if mobile addVPad(UP_DOWN, A_B); #end
 
 		super.create();
 	}
