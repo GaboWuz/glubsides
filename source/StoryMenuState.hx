@@ -139,7 +139,7 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 124");
 
-		sprDifficulty = new FlxSprite(grpWeekText.members[0].x + grpWeekText.members[0].width + 140, grpWeekText.members[0].width + 10, grpWeekText.members[0].y + 10);
+		sprDifficulty = new FlxSprite(6767, 6767);
 		sprDifficulty.frames = ui_tex;
 		sprDifficulty.animation.addByPrefix('easy', 'EASY');
 		sprDifficulty.animation.addByPrefix('normal', 'NORMAL');
@@ -292,7 +292,7 @@ class StoryMenuState extends MusicBeatState
 		sprDifficulty.alpha = 0;
 
 		// USING THESE WEIRD VALUES SO THAT IT DOESNT FLOAT UP
-		sprDifficulty.y = grpWeekText.members[0].width + 10, grpWeekText.members[0].y + 10 - 15;
+		sprDifficulty.y = 6767;
 		intendedScore = Highscore.getWeekScore(curWeek, curDifficulty);
 
 		#if !switch
