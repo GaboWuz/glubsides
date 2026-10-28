@@ -331,10 +331,10 @@ class PlayState extends MusicBeatState
 				];
 			case 'senpai':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('senpai/senpaiDialogue'));
-			case 'glurns':
+			case 'glubes':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('glubes/dialogue'));
+      case 'glurns':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('glurns/dialogue'));
-			case 'thorns':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
 		}
 
 		switch(SONG.stage)
@@ -592,7 +592,7 @@ class PlayState extends MusicBeatState
 					bgGirls = new BackgroundGirls(-100, 190);
 					bgGirls.scrollFactor.set(0.9, 0.9);
 
-					if (SONG.song.toLowerCase() == 'glurns')
+					if (SONG.song.toLowerCase() == 'glurns' || SONG.song.toLowerCase() == 'glubes')
 						{
 							if(FlxG.save.data.distractions){
 								bgGirls.getScared();
@@ -993,7 +993,7 @@ class PlayState extends MusicBeatState
 		
 			switch (curSong.toLowerCase())
 			{
-				case 'senpai':
+				case 'glubes':
 					schoolIntro(doof);
 				case 'glurns':
 					FlxG.sound.play(Paths.sound('ANGRY'));

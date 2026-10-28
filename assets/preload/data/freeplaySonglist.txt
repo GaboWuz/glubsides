@@ -4,5 +4,5 @@ Glesher:dad:1
 Glufther:dad:1
 Capsbattle:dad:1
 Glubbed:pico:3
-LuaGlubs:senpai:6
+Glubes:senpai:6
 Glurns:senpai-angry:6
