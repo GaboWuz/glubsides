@@ -158,8 +158,6 @@ class DialogueBox extends FlxSpriteGroup
 		// HARD CODING CUZ IM STUPDI
 		if (PlayState.SONG.song.toLowerCase() == 'glurns')
 			portraitLeft.visible = false;
-    if (PlayState.SONG.song.toLowerCase() == 'glubes')
-			portraitLeft.visible = false;
 		if (PlayState.SONG.song.toLowerCase() == 'thorns')
 		{
 			portraitLeft.color = FlxColor.BLACK;

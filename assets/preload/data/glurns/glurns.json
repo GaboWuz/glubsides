@@ -2,6 +2,7 @@
 	"song": {
 		"player1": "bf-pixel",
 		"events": [],
+    "noteStyle": "pixel",
 		"gfVersion": "gf-pixel",
 		"notes": [
 			{
