@@ -2,8 +2,8 @@
 	"song": {
 		"player1": "bf-pixel",
 		"events": [],
-    "noteStyle": "pixel",
-		"gfVersion": "gf-pixel",
+    "gfVersion": "gf-pixel",
+		"noteStyle": "pixel",
 		"notes": [
 			{
 				"sectionNotes": [
@@ -3390,7 +3390,7 @@
 		"player2": "senpai-angry",
 		"player3": null,
 		"song": "Glurns",
-		"stage": "school",
+		"stage": "gluchool",
 		"needsVoices": true,
 		"bpm": 190,
 		"speed": 2.9

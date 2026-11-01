@@ -3,6 +3,7 @@ Glupeboo:dad:1
 Glesher:dad:1
 Glufther:dad:1
 Capsbattle:dad:1
+GlubTime:spooky:2
 Glubbed:pico:3
 Glubes:senpai:6
 Glurns:senpai-angry:6

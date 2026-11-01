@@ -51,6 +51,7 @@ import flixel.util.FlxTimer;
 import haxe.Json;
 import lime.utils.Assets;
 import openfl.display.BlendMode;
+import flixel.addons.display.FlxBackdrop;
 import openfl.display.StageQuality;
 import openfl.filters.ShaderFilter;
 
@@ -155,7 +156,7 @@ class PlayState extends MusicBeatState
 
 	public var dialogue:Array<String> = ['dad:blah blah blah', 'bf:coolswag'];
 
-	var halloweenBG:FlxSprite;
+	var whitwfunny:FlxSprite;
 	var isHalloween:Bool = false;
 
 	var phillyCityLights:FlxTypedGroup<FlxSprite>;
@@ -171,6 +172,8 @@ class PlayState extends MusicBeatState
 	var santa:FlxSprite;
 
 	var fc:Bool = true;
+
+  var tiktok:FlxBackdrop;
 
 	var bgGirls:BackgroundGirls;
 	var wiggleShit:WiggleEffect = new WiggleEffect();
@@ -342,17 +345,46 @@ class PlayState extends MusicBeatState
 			case 'halloween': 
 			{
 				curStage = 'spooky';
+        defaultCamZoom = 0.6;
 				halloweenLevel = true;
 
-				var hallowTex = Paths.getSparrowAtlas('halloween_bg','week2');
-
-				halloweenBG = new FlxSprite(-200, -100);
-				halloweenBG.frames = hallowTex;
-				halloweenBG.animation.addByPrefix('idle', 'halloweem bg0');
-				halloweenBG.animation.addByPrefix('lightning', 'halloweem bg lightning strike', 24, false);
-				halloweenBG.animation.play('idle');
-				halloweenBG.antialiasing = true;
-				add(halloweenBG);
+				var backstage = new FlxSprite(0, -300).loadGraphic(Paths.image('background/week2/back'));
+        backstage.setGraphicSize(Std.int(backstage.height * 3));
+        backstage.x = (FlxG.width / 2) - (backstage.width / 2);
+        backstage.scrollFactor.set(0.1, 0.1);
+        backstage.updateHitbox();
+        backstage.antialiasing = false;
+        add(backstage);
+      
+        var clouds = new FlxSprite(0, -200).loadGraphic(Paths.image('background/week2/nuvens'));
+        clouds.setGraphicSize(Std.int(clouds.height * 3));
+        clouds.x = (FlxG.width / 2) - (clouds.width / 2) -250;
+        clouds.scrollFactor.set(0.6, 0.6);
+        clouds.updateHitbox();
+        clouds.antialiasing = false;
+        add(clouds);
+      
+        var moon = new FlxSprite(-200, -200).loadGraphic(Paths.image('background/week2/lua'));
+        moon.setGraphicSize(Std.int(moon.height * 3));
+        moon.x = (FlxG.width / 2) - (moon.width / 2);
+        moon.scrollFactor.set(0.8, 0.8);
+        moon.updateHitbox();
+        moon.antialiasing = false;
+        add(moon);
+      
+        var gabaskpisnotreal = new FlxSprite(0, 0).loadGraphic(Paths.image('background/week2/predio'));
+        gabaskpisnotreal.setGraphicSize(Std.int(gabaskpisnotreal.height * 3));
+        gabaskpisnotreal.x = (FlxG.width / 2) - (gabaskpisnotreal.width / 2);
+        gabaskpisnotreal.updateHitbox();
+        gabaskpisnotreal.antialiasing = false;
+        add(gabaskpisnotreal);
+      
+        whitwfunny = new FlxSprite(-200, 0).makeGraphic(3500, 3500, 0xFF57496E);
+        whitwfunny.updateHitbox();
+        whitwfunny.alpha = 0;
+        whitwfunny.blend = BlendMode.ADD;
+        whitwfunny.zIndex = 67;
+        add(whitwfunny);
 
 				isHalloween = true;
 			}
@@ -403,8 +435,7 @@ class PlayState extends MusicBeatState
 					add(street);
 			}
 			case 'limo':
-			{
-					curStage = 'limo';
+defaultCamZoom = 0.90;					curStage = 'limo';
 					defaultCamZoom = 0.90;
 
 					var skyBG:FlxSprite = new FlxSprite(-120, -50).loadGraphic(Paths.image('limo/limoSunset','week4'));
@@ -605,6 +636,31 @@ class PlayState extends MusicBeatState
 						add(bgGirls);
 					}
 			}
+      case 'gluchool':
+			{
+					curStage = 'gluchool';
+					defaultCamZoom = 0.5;
+
+					var sky:FlxSprite = new FlxSprite(-910, -821).makeGraphic(3500, 720, 0xFF180A30);
+          sky.updateHitbox();
+          add(sky);
+          
+          tiktok = new FlxBackdrop(Paths.image('background/week6/tiktok'), 0x10);
+        	tiktok.velocity.set(0, -40);
+          tiktok.x = (FlxG.width / 2) - (tiktok.width / 2);
+          tiktok.updateHitbox();
+        	add(tiktok);
+        
+          var search = new FlxSprite(0, -348.5).loadGraphic(Paths.image('background/week6/bdp'));
+          search.x = (FlxG.width / 2) - (search.width / 2);
+          search.updateHitbox();
+          add(search);
+          
+          var ground = new FlxSprite(-1200, 510).loadGraphic(Paths.image('background/week6/back'));
+          ground.scale.set(3.4, 2.7);
+          ground.updateHitbox();
+          add(ground);
+      }
 			case 'schoolEvil':
 			{
 					curStage = 'schoolEvil';
@@ -896,7 +952,7 @@ class PlayState extends MusicBeatState
 				songPosBar = new FlxBar(songPosBG.x + 4, songPosBG.y + 4, LEFT_TO_RIGHT, Std.int(songPosBG.width - 8), Std.int(songPosBG.height - 8), this,
 					'songPositionBar', 0, 90000);
 				songPosBar.scrollFactor.set();
-				songPosBar.createFilledBar(FlxColor.GRAY, FlxColor.LIME);
+        songPosBar.createFilledBar(0xFF86789D, 0xFF9C8EB3);
 				add(songPosBar);
 	
 				var songName = new FlxText(songPosBG.x + (songPosBG.width / 2) - 20,songPosBG.y,0,SONG.song, 16);
@@ -918,12 +974,12 @@ class PlayState extends MusicBeatState
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
 			'health', 0, 2);
 		healthBar.scrollFactor.set();
-		healthBar.createFilledBar(0xFFFF0000, 0xFF66FF33);
+		healthBar.createFilledBar(0xFF524469, 0xFFC0B2D7);
 		// healthBar
 		add(healthBar);
 
 		// Add Kade Engine watermark
-		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " " + (storyDifficulty == 2 ? "Hard" : storyDifficulty == 1 ? "Normal" : "Easy") + (Main.watermarks ? " - KE " + MainMenuState.kadeEngineVer : ""), 16);
+		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " " + (storyDifficulty == 2 ? "Hard" : storyDifficulty == 1 ? "Normal" : "Easy") + " - GlubEv 6.7", 16);
 		kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		kadeEngineWatermark.scrollFactor.set();
 		add(kadeEngineWatermark);
@@ -1168,7 +1224,7 @@ class PlayState extends MusicBeatState
 					ready.scrollFactor.set();
 					ready.updateHitbox();
 
-					if (curStage.startsWith('school'))
+					if (curStage.startsWith('school') || curStage.startsWith('gluchool'))
 						ready.setGraphicSize(Std.int(ready.width * daPixelZoom));
 
 					ready.screenCenter();
@@ -1185,7 +1241,7 @@ class PlayState extends MusicBeatState
 					var set:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[1]));
 					set.scrollFactor.set();
 
-					if (curStage.startsWith('school'))
+					if (curStage.startsWith('school') || curStage.startsWith('gluchool'))
 						set.setGraphicSize(Std.int(set.width * daPixelZoom));
 
 					set.screenCenter();
@@ -1202,7 +1258,7 @@ class PlayState extends MusicBeatState
 					var go:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[2]));
 					go.scrollFactor.set();
 
-					if (curStage.startsWith('school'))
+					if (curStage.startsWith('school') || curStage.startsWith('gluchool'))
 						go.setGraphicSize(Std.int(go.width * daPixelZoom));
 
 					go.updateHitbox();
@@ -1267,7 +1323,7 @@ class PlayState extends MusicBeatState
 				'songPositionBar', 0, songLength - 1000);
 			songPosBar.numDivisions = 1000;
 			songPosBar.scrollFactor.set();
-			songPosBar.createFilledBar(FlxColor.GRAY, FlxColor.LIME);
+			songPosBar.createFilledBar(0xFF86789D, 0xFF9C8EB3);
 			add(songPosBar);
 
 			var songName = new FlxText(songPosBG.x + (songPosBG.width / 2) - 20,songPosBG.y,0,SONG.song, 16);
@@ -2265,7 +2321,7 @@ class PlayState extends MusicBeatState
 								{
 									spr.animation.play('confirm', true);
 								}
-								if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school'))
+								if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school') || curStage.startsWith('gluchool'))
 								{
 									spr.centerOffsets();
 									spr.offset.x -= 13;
@@ -2578,7 +2634,7 @@ class PlayState extends MusicBeatState
 			var pixelShitPart1:String = "";
 			var pixelShitPart2:String = '';
 	
-			if (curStage.startsWith('school'))
+			if (curStage.startsWith('school') || curStage.startsWith('gluchool'))
 			{
 				pixelShitPart1 = 'weeb/pixelUI/';
 				pixelShitPart2 = '-pixel';
@@ -2664,7 +2720,7 @@ class PlayState extends MusicBeatState
 			currentTimingShown.velocity.x += comboSpr.velocity.x;
 			if(!FlxG.save.data.botplay) add(rating);
 	
-			if (!curStage.startsWith('school'))
+			if (!curStage.startsWith('school') || curStage.startsWith('gluchool'))
 			{
 				rating.setGraphicSize(Std.int(rating.width * 0.7));
 				rating.antialiasing = true;
@@ -2707,7 +2763,7 @@ class PlayState extends MusicBeatState
 				numScore.y = rating.y + 100;
 				numScore.cameras = [camHUD];
 
-				if (!curStage.startsWith('school'))
+				if (!curStage.startsWith('school') || curStage.startsWith('gluchool'))
 				{
 					numScore.antialiasing = true;
 					numScore.setGraphicSize(Std.int(numScore.width * 0.5));
@@ -2963,7 +3019,7 @@ class PlayState extends MusicBeatState
 					if (!holdArray[spr.ID])
 						spr.animation.play('static');
 		 
-					if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school'))
+					if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school') || curStage.startsWith('gluchool'))
 					{
 						spr.centerOffsets();
 						spr.offset.x -= 13;
@@ -3280,7 +3336,8 @@ class PlayState extends MusicBeatState
 	function lightningStrikeShit():Void
 	{
 		FlxG.sound.play(Paths.soundRandom('thunder_', 1, 2));
-		halloweenBG.animation.play('lightning');
+		whitwfunny.alpha = 0.5;
+    FlxTween.tween(whitwfunny, { alpha: 0 }, 1.0);
 
 		lightningStrikeBeat = curBeat;
 		lightningOffset = FlxG.random.int(8, 24);

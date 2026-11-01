@@ -267,7 +267,7 @@ class Character extends FlxSprite
 				flipX = true;
 
 			case 'bf':
-				var tex = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
+				var tex = Paths.getSparrowAtlas('characters/Glubf_Assets', 'shared');
 				frames = tex;
 
 				trace(tex.frames.length);
@@ -289,20 +289,20 @@ class Character extends FlxSprite
 
 				animation.addByPrefix('scared', 'BF idle shaking', 24);
 
-				addOffset('idle', -5);
-				addOffset("singUP", -29, 27);
-				addOffset("singRIGHT", -38, -7);
-				addOffset("singLEFT", 12, -6);
-				addOffset("singDOWN", -10, -50);
-				addOffset("singUPmiss", -29, 27);
-				addOffset("singRIGHTmiss", -30, 21);
-				addOffset("singLEFTmiss", 12, 24);
-				addOffset("singDOWNmiss", -11, -19);
-				addOffset("hey", 7, 4);
+				addOffset('idle', -7, 2);
+				addOffset("singUP", -65, 49);
+				addOffset("singRIGHT", -61, 7);
+				addOffset("singLEFT", -9, 5);
+				addOffset("singDOWN", -25, -40);
+				addOffset("singUPmiss", -31, 64);
+				addOffset("singRIGHTmiss", -12, 12);
+				addOffset("singLEFTmiss", 16, 4);
+				addOffset("singDOWNmiss", 48, -46);
+				addOffset("hey", -18, 3);
 				addOffset('firstDeath', 37, 11);
 				addOffset('deathLoop', 37, 5);
 				addOffset('deathConfirm', 37, 69);
-				addOffset('scared', -4);
+				addOffset('scared', -18, 3);
 
 				playAnim('idle');
 
@@ -322,16 +322,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
 				animation.addByPrefix('hey', 'BF HEY', 24, false);
 
-				addOffset('idle', -5);
-				addOffset("singUP", -29, 27);
-				addOffset("singRIGHT", -38, -7);
-				addOffset("singLEFT", 12, -6);
-				addOffset("singDOWN", -10, -50);
-				addOffset("singUPmiss", -29, 27);
-				addOffset("singRIGHTmiss", -30, 21);
-				addOffset("singLEFTmiss", 12, 24);
-				addOffset("singDOWNmiss", -11, -19);
-				addOffset("hey", 7, 4);
+				addOffset('idle', -7, 2);
+				addOffset("singUP", -65, 49);
+				addOffset("singRIGHT", -61, 7);
+				addOffset("singLEFT", -9, 5);
+				addOffset("singDOWN", -25, -40);
+				addOffset("singUPmiss", -31, 64);
+				addOffset("singRIGHTmiss", -12, 12);
+				addOffset("singLEFTmiss", 16, 4);
+				addOffset("singDOWNmiss", 48, -46);
+				addOffset("hey", -18, 3);
 
 				playAnim('idle');
 
