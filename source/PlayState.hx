@@ -383,8 +383,6 @@ class PlayState extends MusicBeatState
         whitwfunny.updateHitbox();
         whitwfunny.alpha = 0;
         whitwfunny.blend = BlendMode.ADD;
-        whitwfunny.zIndex = 67;
-        add(whitwfunny);
 
 				isHalloween = true;
 			}
@@ -883,6 +881,11 @@ class PlayState extends MusicBeatState
 
 		add(dad);
 		add(boyfriend);
+
+    if (curStage == 'halloween' || curStage == 'spooky') {
+        add(whitwfunny);
+    }
+    
 		if (loadRep)
 		{
 			FlxG.watch.addQuick('rep rpesses',repPresses);
