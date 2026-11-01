@@ -1,0 +1,139 @@
+name: Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: 4.3.3
+
+      - name: Restore Windows Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            .haxelib/
+            export/release/windows/haxe/
+            export/release/windows/obj/
+          key: glubsides-windows-haxe-4.3.3-${{ hashFiles('hmm.json') }}
+          restore-keys: |
+            glubsides-windows-haxe-4.3.3-
+
+      - name: Read Version
+        id: ver
+        uses: jaywcjlove/github-action-read-file@v2.0.0
+        with:
+          path: ver.txt
+
+      - name: Install Haxelib
+        shell: cmd
+        run: |
+          haxelib --global install hmm
+          haxelib --global run hmm setup
+          haxelib --global run hmm init
+          haxelib --global run hmm install
+
+      - name: Compile Windows
+        run: haxelib run lime build windows --app-version="${{ steps.ver.outputs.content }}-${{ github.run_id }}"
+
+      - name: Upload Windows Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: Windows Build
+          path: export/release/windows/bin/
+          if-no-files-found: error
+
+  Android:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Android NDK
+        id: setup-ndk
+        uses: nttld/setup-ndk@v4
+        with:
+          ndk-version: r21e
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: zulu
+          java-version: '11'
+
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@38fd78cc3a7960b281cf4a33a63a9c1543ac4598
+        with:
+          haxe-version: 4.2.5
+
+      - name: Restore Android Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            .haxelib/
+            export/release/android/haxe/
+            export/release/android/obj/
+          key: glubsides-android-haxe-4.2.5-${{ hashFiles('hmm.json') }}
+          restore-keys: |
+            glubsides-android-haxe-4.2.5-
+
+      - name: Install Haxelib Libraries
+        run: |
+          haxelib install hmm --quiet
+          haxelib run hmm install
+
+      - name: Configure Android
+        env:
+          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+        run: |
+          haxelib run lime setup -alias -y
+          haxelib run lime config ANDROID_SDK "$ANDROID_HOME"
+          haxelib run lime config ANDROID_NDK_ROOT "$ANDROID_NDK_HOME"
+          haxelib run lime config JAVA_HOME "$JAVA_HOME"
+          haxelib run lime config ANDROID_SETUP true
+
+      - name: Check Android Signing Key
+        run: |
+          if [ ! -f glub.keystore ]; then
+            echo "::error::glub.keystore was not found in the repository root."
+            exit 1
+          fi
+          echo "Android signing key file found."
+
+      - name: Build Android
+        run: haxelib run lime build android -final
+
+      - name: Find Android APK
+        shell: bash
+        run: |
+          echo "Searching for generated APK files..."
+
+          find export/release/android -type f -name "*.apk" -print
+
+          if ! find export/release/android -type f -name "*.apk" -print -quit | grep -q .; then
+            echo "::error::No APK was generated."
+            echo "Checking Android build output directories:"
+            find export/release/android -maxdepth 7 -type d -print
+            exit 1
+          fi
+
+      - name: Upload Android APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Android Build
+          path: export/release/android/**/*.apk
+          if-no-files-found: error
