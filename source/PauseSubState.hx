@@ -21,7 +21,7 @@ class PauseSubState extends MusicBeatSubstate
 {
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
-	var menuItems:Array<String> = ['Resume', 'Restart Song', 'Exit to menu'];
+	var menuItems:Array<String> = ['Reglube', 'Restart Glubing', 'Exit'];
 	var curSelected:Int = 0;
 
 	var pauseMusic:FlxSound;
@@ -130,7 +130,7 @@ class PauseSubState extends MusicBeatSubstate
 				{
 					grpMenuShit.clear();
 
-					menuItems = ['Restart Song', 'Exit to menu'];
+					menuItems = ['Restart Glubing', 'Exit'];
 
 					for (i in 0...menuItems.length)
 					{
@@ -155,7 +155,7 @@ class PauseSubState extends MusicBeatSubstate
 				{
 					grpMenuShit.clear();
 
-					menuItems = ['Restart Song', 'Exit to menu'];
+					menuItems = ['Restart Glubing', 'Exit'];
 
 					for (i in 0...menuItems.length)
 					{
@@ -179,11 +179,11 @@ class PauseSubState extends MusicBeatSubstate
 
 			switch (daSelected)
 			{
-				case "Resume":
+				case "Reglube":
 					close();
-				case "Restart Song":
+				case "Restart Glubing":
 					FlxG.resetState();
-				case "Exit to menu":
+				case "Exit":
 					if(PlayState.loadRep)
 					{
 						FlxG.save.data.botplay = false;
@@ -201,7 +201,7 @@ class PauseSubState extends MusicBeatSubstate
 					if (FlxG.save.data.fpsCap > 290)
 						(cast (Lib.current.getChildAt(0), Main)).setFPSCap(290);
 					
-					FlxG.switchState(new MainMenuState());
+					FlxG.switchState(new FreeplayState());
 			}
 		}
 

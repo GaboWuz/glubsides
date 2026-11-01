@@ -161,6 +161,8 @@
 
 	<!-- _________________________________ Custom _______________________________ -->
 
+  <certificate path="glub.keystore" password="glubengine" alias="glubengine" alias-password="glubengine" if="android" />
+
 	<!--Place custom nodes like icons here (higher priority to override the HaxeFlixel icon)-->
 	
 	<icon path="art/icon16.png" size='16'/>

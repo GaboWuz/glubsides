@@ -5,6 +5,7 @@ import haxe.Exception;
 import openfl.geom.Matrix;
 import openfl.display.BitmapData;
 import openfl.utils.AssetType;
+import flixel.util.FlxAxes;
 import lime.graphics.Image;
 import flixel.graphics.FlxGraphic;
 import openfl.utils.AssetManifest;
@@ -344,7 +345,7 @@ class PlayState extends MusicBeatState
 		{
 			case 'halloween': 
 			{
-				curStage = 'spooky';
+				curStage = 'halloween';
         defaultCamZoom = 0.6;
 				halloweenLevel = true;
 
@@ -644,7 +645,7 @@ class PlayState extends MusicBeatState
           sky.updateHitbox();
           add(sky);
           
-          tiktok = new FlxBackdrop(Paths.image('background/week6/tiktok'), 0x10);
+          tiktok = new FlxBackdrop(Paths.image('background/week6/tiktok'), FlxAxes.Y);
         	tiktok.velocity.set(0, -40);
           tiktok.x = (FlxG.width / 2) - (tiktok.width / 2);
           tiktok.updateHitbox();
@@ -819,11 +820,11 @@ class PlayState extends MusicBeatState
 			case 'senpai':
 				dad.x += 150;
 				dad.y += 360;
-				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
+				camPos.set(dad.getGraphicMidpoint().x + 280, dad.getGraphicMidpoint().y);
 			case 'senpai-angry':
 				dad.x += 150;
 				dad.y += 360;
-				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
+				camPos.set(dad.getGraphicMidpoint().x + 280, dad.getGraphicMidpoint().y);
 			case 'spirit':
 				dad.x -= 150;
 				dad.y += 100;
@@ -851,7 +852,7 @@ class PlayState extends MusicBeatState
 			case 'mallEvil':
 				boyfriend.x += 320;
 				dad.y -= 80;
-			case 'school':
+			case 'gluchool':
 				boyfriend.x += 200;
 				boyfriend.y += 220;
 				gf.x += 180;
@@ -882,7 +883,7 @@ class PlayState extends MusicBeatState
 		add(dad);
 		add(boyfriend);
 
-    if (curStage == 'halloween' || curStage == 'spooky') {
+    if (curStage == 'halloween') {
         add(whitwfunny);
     }
     
@@ -2325,7 +2326,7 @@ class PlayState extends MusicBeatState
 								{
 									spr.animation.play('confirm', true);
 								}
-								if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school') || curStage.startsWith('gluchool'))
+								if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school') || !curStage.startsWith('gluchool'))
 								{
 									spr.centerOffsets();
 									spr.offset.x -= 13;
@@ -2571,7 +2572,6 @@ class PlayState extends MusicBeatState
 			coolText.screenCenter();
 			coolText.x = FlxG.width * 0.55;
 			coolText.y -= 350;
-			coolText.cameras = [camHUD];
 			//
 	
 			var rating:FlxSprite = new FlxSprite();
@@ -2596,7 +2596,7 @@ class PlayState extends MusicBeatState
 				case 'bad':
 					daRating = 'bad';
 					score = 0;
-					health -= 0.06;
+					health -= 0.01;
 					ss = false;
 					bads++;
 					if (FlxG.save.data.accuracyMod == 0)
@@ -2669,11 +2669,11 @@ class PlayState extends MusicBeatState
 			switch(daRating)
 			{
 				case 'shit' | 'bad':
-					currentTimingShown.color = FlxColor.RED;
+					currentTimingShown.color = FlxColor.WHITE;
 				case 'good':
-					currentTimingShown.color = FlxColor.GREEN;
+					currentTimingShown.color = FlxColor.WHITE;
 				case 'sick':
-					currentTimingShown.color = FlxColor.CYAN;
+					currentTimingShown.color = FlxColor.WHITE;
 			}
 			currentTimingShown.borderStyle = OUTLINE;
 			currentTimingShown.borderSize = 1;
@@ -2724,7 +2724,7 @@ class PlayState extends MusicBeatState
 			currentTimingShown.velocity.x += comboSpr.velocity.x;
 			if(!FlxG.save.data.botplay) add(rating);
 	
-			if (!curStage.startsWith('school') || curStage.startsWith('gluchool'))
+			if (!curStage.startsWith('school') || !curStage.startsWith('gluchool'))
 			{
 				rating.setGraphicSize(Std.int(rating.width * 0.7));
 				rating.antialiasing = true;
@@ -2740,10 +2740,6 @@ class PlayState extends MusicBeatState
 			currentTimingShown.updateHitbox();
 			comboSpr.updateHitbox();
 			rating.updateHitbox();
-	
-			currentTimingShown.cameras = [camHUD];
-			comboSpr.cameras = [camHUD];
-			rating.cameras = [camHUD];
 
 			var seperatedScore:Array<Int> = [];
 	
@@ -2767,7 +2763,7 @@ class PlayState extends MusicBeatState
 				numScore.y = rating.y + 100;
 				numScore.cameras = [camHUD];
 
-				if (!curStage.startsWith('school') || curStage.startsWith('gluchool'))
+				if (!curStage.startsWith('school') || !curStage.startsWith('gluchool'))
 				{
 					numScore.antialiasing = true;
 					numScore.setGraphicSize(Std.int(numScore.width * 0.5));
@@ -3023,7 +3019,7 @@ class PlayState extends MusicBeatState
 					if (!holdArray[spr.ID])
 						spr.animation.play('static');
 		 
-					if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school') || curStage.startsWith('gluchool'))
+					if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school') || !curStage.startsWith('gluchool'))
 					{
 						spr.centerOffsets();
 						spr.offset.x -= 13;

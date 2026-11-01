@@ -27,7 +27,7 @@ class OptionsMenu extends MusicBeatState
 		new OptionCategory("Gameplay", [
 			new DFJKOption(controls),
 			new DownscrollOption("Change the layout of the strumline."),
-			new FuckboxOption("goofy gaboboox."),
+			// new FuckboxOption("goofy gaboboox."),
 			new GhostTapOption("Ghost Tapping is when you tap a direction and it doesn't give you a miss."),
 			new Judgement("Customize your Hit Timings (LEFT or RIGHT)"),
 			new FPSCapOption("Cap your FPS"),
