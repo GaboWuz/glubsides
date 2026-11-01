@@ -435,7 +435,8 @@ class PlayState extends MusicBeatState
 					add(street);
 			}
 			case 'limo':
-defaultCamZoom = 0.90;					curStage = 'limo';
+			{
+					curStage = 'limo';
 					defaultCamZoom = 0.90;
 
 					var skyBG:FlxSprite = new FlxSprite(-120, -50).loadGraphic(Paths.image('limo/limoSunset','week4'));
@@ -544,7 +545,7 @@ defaultCamZoom = 0.90;					curStage = 'limo';
 					if(FlxG.save.data.distractions){
 						add(santa);
 					}
-			}
+      }
 			case 'mallEvil':
 			{
 					curStage = 'mallEvil';
