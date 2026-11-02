@@ -731,7 +731,7 @@ class PlayState extends MusicBeatState
 		{
       case 'halloween':
 				boyfriend.y += 280;
-        gf.y += 205;
+        gf.y += 295;
         dad.y += 290;
 
         boyfriend.x += 600;
@@ -753,10 +753,10 @@ class PlayState extends MusicBeatState
 				boyfriend.x += 320;
 				dad.y -= 80;
 			case 'school':
-				boyfriend.x += 200;
+				boyfriend.x += 220;
 				boyfriend.y += 220;
-				gf.x += 180;
-				gf.y += 300;
+				gf.x += 190;
+				gf.y += 320;
 			case 'schoolEvil':
 				if(FlxG.save.data.distractions){
 				// trailArea.scrollFactor.set();
@@ -1965,10 +1965,10 @@ class PlayState extends MusicBeatState
 					case 'mom':
 						camFollow.y = dad.getMidpoint().y;
 					case 'senpai':
-						camFollow.y = dad.getMidpoint().y - 550;
+						camFollow.y = dad.getMidpoint().y - 567;
 						camFollow.x = dad.getMidpoint().x - 100;
 					case 'senpai-angry':
-						camFollow.y = dad.getMidpoint().y - 550;
+						camFollow.y = dad.getMidpoint().y - 567;
 						camFollow.x = dad.getMidpoint().x - 100;
 				}
 
@@ -1997,13 +1997,13 @@ class PlayState extends MusicBeatState
 				switch (curStage)
 				{
           case 'halloween':
-            camFollow.x = boyfriend.getMidpoint().x - 300;
+            camFollow.x = boyfriend.getMidpoint().x - 400;
 					case 'limo':
 						camFollow.x = boyfriend.getMidpoint().x - 300;
 					case 'mall':
 						camFollow.y = boyfriend.getMidpoint().y - 200;
 					case 'school':
-            camFollow.x = boyfriend.getMidpoint().x - 300;
+            camFollow.x = boyfriend.getMidpoint().x - 450;
 						camFollow.y = boyfriend.getMidpoint().y - 400;
 					case 'schoolEvil':
 						camFollow.x = boyfriend.getMidpoint().x - 200;
