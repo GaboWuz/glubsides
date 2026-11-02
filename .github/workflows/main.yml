@@ -184,9 +184,9 @@ jobs:
             export/release/android/obj/
           key: cache-android-build
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
+      - name: Publish Artifact
+        uses: actions/upload-artifact@v4.4.0
         with:
-          name: Android APK
-          path: export/release/android/**/*.apk
+          name: Android Build
+          path: 'export/release/android/bin/app/build/outputs/apk/*'
           if-no-files-found: warn
