@@ -732,10 +732,10 @@ class PlayState extends MusicBeatState
       case 'halloween':
 				boyfriend.y += 280;
         gf.y += 280;
-        dad.y += 400;
+        dad.y += 290;
 
-        boyfriend.x += 400;
-        gf.x += 360;
+        boyfriend.x += 600;
+        gf.x += 560;
         dad.x += 400;
         
 			case 'limo':
@@ -1965,10 +1965,10 @@ class PlayState extends MusicBeatState
 					case 'mom':
 						camFollow.y = dad.getMidpoint().y;
 					case 'senpai':
-						camFollow.y = dad.getMidpoint().y - 500;
+						camFollow.y = dad.getMidpoint().y - 515;
 						camFollow.x = dad.getMidpoint().x - 100;
 					case 'senpai-angry':
-						camFollow.y = dad.getMidpoint().y - 500;
+						camFollow.y = dad.getMidpoint().y - 515;
 						camFollow.x = dad.getMidpoint().x - 100;
 				}
 
@@ -1996,12 +1996,14 @@ class PlayState extends MusicBeatState
 
 				switch (curStage)
 				{
+          case 'halloween':
+            camFollow.x = boyfriend.getMidpoint().x - 200;
 					case 'limo':
 						camFollow.x = boyfriend.getMidpoint().x - 300;
 					case 'mall':
 						camFollow.y = boyfriend.getMidpoint().y - 200;
 					case 'school':
-            camFollow.x = boyfriend.getMidpoint().x - 200;
+            camFollow.x = boyfriend.getMidpoint().x - 285;
 						camFollow.y = boyfriend.getMidpoint().y - 400;
 					case 'schoolEvil':
 						camFollow.x = boyfriend.getMidpoint().x - 200;
