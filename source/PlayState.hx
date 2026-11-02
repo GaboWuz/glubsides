@@ -731,7 +731,7 @@ class PlayState extends MusicBeatState
 		{
       case 'halloween':
 				boyfriend.y += 280;
-        gf.y += 280;
+        gf.y += 205;
         dad.y += 290;
 
         boyfriend.x += 600;
@@ -1870,7 +1870,7 @@ class PlayState extends MusicBeatState
 								}
 							}
 						}
-						case 'Bopeebo':
+						case 'Glupeebo':
 						{
 							// Where it starts || where it ends
 							if(curBeat > 5 && curBeat < 130)
@@ -1965,10 +1965,10 @@ class PlayState extends MusicBeatState
 					case 'mom':
 						camFollow.y = dad.getMidpoint().y;
 					case 'senpai':
-						camFollow.y = dad.getMidpoint().y - 515;
+						camFollow.y = dad.getMidpoint().y - 550;
 						camFollow.x = dad.getMidpoint().x - 100;
 					case 'senpai-angry':
-						camFollow.y = dad.getMidpoint().y - 515;
+						camFollow.y = dad.getMidpoint().y - 550;
 						camFollow.x = dad.getMidpoint().x - 100;
 				}
 
@@ -1997,13 +1997,13 @@ class PlayState extends MusicBeatState
 				switch (curStage)
 				{
           case 'halloween':
-            camFollow.x = boyfriend.getMidpoint().x - 200;
+            camFollow.x = boyfriend.getMidpoint().x - 300;
 					case 'limo':
 						camFollow.x = boyfriend.getMidpoint().x - 300;
 					case 'mall':
 						camFollow.y = boyfriend.getMidpoint().y - 200;
 					case 'school':
-            camFollow.x = boyfriend.getMidpoint().x - 285;
+            camFollow.x = boyfriend.getMidpoint().x - 300;
 						camFollow.y = boyfriend.getMidpoint().y - 400;
 					case 'schoolEvil':
 						camFollow.x = boyfriend.getMidpoint().x - 200;
