@@ -175,8 +175,7 @@ class PlayState extends MusicBeatState
 	var fc:Bool = true;
 
   var tiktok:FlxBackdrop;
-
-	var bgGirls:BackgroundGirls;
+  
 	var wiggleShit:WiggleEffect = new WiggleEffect();
 
 	var talking:Bool = true;
@@ -575,8 +574,6 @@ class PlayState extends MusicBeatState
           sky.updateHitbox();
           add(sky);
 
-					var repositionShit = -200;
-
 					tiktok = new FlxBackdrop(Paths.image('background/week6/tiktok'), FlxAxes.Y);
         	tiktok.velocity.set(0, -40);
           tiktok.x = (FlxG.width / 2) - (tiktok.width / 2);
@@ -699,7 +696,7 @@ class PlayState extends MusicBeatState
 				}
 
 			case "spooky":
-				dad.y += 200;
+				dad.y += 400;
 			case "monster":
 				dad.y += 100;
 			case 'monster-christmas':
@@ -732,6 +729,10 @@ class PlayState extends MusicBeatState
 		// REPOSITIONING PER STAGE
 		switch (curStage)
 		{
+      case 'halloween':
+				boyfriend.y += 300;
+        gf.y += 300;
+        
 			case 'limo':
 				boyfriend.y -= 220;
 				boyfriend.x += 260;
@@ -903,7 +904,7 @@ class PlayState extends MusicBeatState
 			add(replayTxt);
 		}
 		// Literally copy-paste of the above, fu
-		botPlayState = new FlxText(healthBarBG.x + healthBarBG.width / 2 - 75, healthBarBG.y + (FlxG.save.data.downscroll ? 100 : -100), 0, "BOTPLAY", 20);
+		botPlayState = new FlxText(healthBarBG.x + healthBarBG.width / 2 - 75, healthBarBG.y + (FlxG.save.data.downscroll ? 100 : -100), 0, "BOOT PLAY", 20);
 		botPlayState.setFormat(Paths.font("vcr.ttf"), 42, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		botPlayState.scrollFactor.set();
 		
@@ -948,7 +949,7 @@ class PlayState extends MusicBeatState
 			switch (curSong.toLowerCase())
 			{
 				case 'glubes':
-					schoolIntro(doof);
+					Intro(doof);
 				case 'glurns':
 					FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
@@ -1959,7 +1960,7 @@ class PlayState extends MusicBeatState
 					case 'mom':
 						camFollow.y = dad.getMidpoint().y;
 					case 'senpai':
-						camFollow.y = dad.getMidpoint().y - 470;
+						camFollow.y = dad.getMidpoint().y - 500;
 						camFollow.x = dad.getMidpoint().x - 100;
 					case 'senpai-angry':
 						camFollow.y = dad.getMidpoint().y - 430;
@@ -1995,8 +1996,7 @@ class PlayState extends MusicBeatState
 					case 'mall':
 						camFollow.y = boyfriend.getMidpoint().y - 200;
 					case 'school':
-						camFollow.x = boyfriend.getMidpoint().x;
-						camFollow.y = boyfriend.getMidpoint().y - 270;
+						camFollow.y = boyfriend.getMidpoint().y - 390;
 					case 'schoolEvil':
 						camFollow.x = boyfriend.getMidpoint().x - 200;
 						camFollow.y = boyfriend.getMidpoint().y - 200;
@@ -3359,11 +3359,6 @@ class PlayState extends MusicBeatState
 
 		switch (curStage)
 		{
-			case 'school':
-				if(FlxG.save.data.distractions){
-					bgGirls.dance();
-				}
-
 			case 'mall':
 				if(FlxG.save.data.distractions){
 					upperBoppers.animation.play('bop', true);
