@@ -949,7 +949,7 @@ class PlayState extends MusicBeatState
 			switch (curSong.toLowerCase())
 			{
 				case 'glubes':
-					Intro(doof);
+				  schoolIntro(doof);
 				case 'glurns':
 					FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
