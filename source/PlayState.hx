@@ -696,7 +696,7 @@ class PlayState extends MusicBeatState
 				}
 
 			case "spooky":
-				dad.y += 400;
+				dad.y += 200;
 			case "monster":
 				dad.y += 100;
 			case 'monster-christmas':
@@ -730,8 +730,13 @@ class PlayState extends MusicBeatState
 		switch (curStage)
 		{
       case 'halloween':
-				boyfriend.y += 300;
-        gf.y += 300;
+				boyfriend.y += 280;
+        gf.y += 280;
+        dad.y += 400;
+
+        boyfriend.x += 400;
+        gf.x += 360;
+        dad.x += 400;
         
 			case 'limo':
 				boyfriend.y -= 220;
