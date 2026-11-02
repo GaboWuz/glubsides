@@ -1968,7 +1968,7 @@ class PlayState extends MusicBeatState
 						camFollow.y = dad.getMidpoint().y - 500;
 						camFollow.x = dad.getMidpoint().x - 100;
 					case 'senpai-angry':
-						camFollow.y = dad.getMidpoint().y - 430;
+						camFollow.y = dad.getMidpoint().y - 500;
 						camFollow.x = dad.getMidpoint().x - 100;
 				}
 
@@ -2001,7 +2001,8 @@ class PlayState extends MusicBeatState
 					case 'mall':
 						camFollow.y = boyfriend.getMidpoint().y - 200;
 					case 'school':
-						camFollow.y = boyfriend.getMidpoint().y - 390;
+            camFollow.x = boyfriend.getMidpoint().x - 200;
+						camFollow.y = boyfriend.getMidpoint().y - 400;
 					case 'schoolEvil':
 						camFollow.x = boyfriend.getMidpoint().x - 200;
 						camFollow.y = boyfriend.getMidpoint().y - 200;
