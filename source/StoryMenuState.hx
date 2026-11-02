@@ -25,7 +25,7 @@ class StoryMenuState extends MusicBeatState
 
 	var weekData:Array<Dynamic> = [
 		['Gluborial'],
-    ['Glupeboo', 'Glesher', 'Glufther', 'Capsbattle'],
+    ['Glupeebo', 'Glesher', 'Glufther', 'Capsbattle'],
 	];
 	var curDifficulty:Int = 1;
 

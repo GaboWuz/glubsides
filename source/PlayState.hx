@@ -883,9 +883,8 @@ class PlayState extends MusicBeatState
 		add(dad);
 		add(boyfriend);
 
-    if (curStage == 'halloween') {
+    if (curStage == 'halloween')
         add(whitwfunny);
-    }
     
 		if (loadRep)
 		{
@@ -3336,8 +3335,9 @@ class PlayState extends MusicBeatState
 	function lightningStrikeShit():Void
 	{
 		FlxG.sound.play(Paths.soundRandom('thunder_', 1, 2));
+    
 		whitwfunny.alpha = 0.5;
-    FlxTween.tween(whitwfunny, { alpha: 0 }, 1.0);
+    FlxTween.tween(whitwfunny, {alpha: 0}, 1);
 
 		lightningStrikeBeat = curBeat;
 		lightningOffset = FlxG.random.int(8, 24);
@@ -3453,7 +3453,7 @@ class PlayState extends MusicBeatState
 		}
 		
 
-		if (curBeat % 8 == 7 && curSong == 'Bopeebo')
+		if (curBeat % 8 == 7 && curSong == 'Glupeebo')
 		{
 			boyfriend.playAnim('hey', true);
 		}
