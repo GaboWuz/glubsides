@@ -731,7 +731,7 @@ class PlayState extends MusicBeatState
 		{
       case 'halloween':
 				boyfriend.y += 280;
-        gf.y += 295;
+        gf.y += 195;
         dad.y += 290;
 
         boyfriend.x += 600;
