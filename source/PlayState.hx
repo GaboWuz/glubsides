@@ -735,7 +735,7 @@ class PlayState extends MusicBeatState
         dad.y += 290;
 
         boyfriend.x += 600;
-        gf.x += 500;
+        gf.x += 480;
         dad.x += 400;
         
 			case 'limo':
@@ -753,18 +753,10 @@ class PlayState extends MusicBeatState
 				boyfriend.x += 320;
 				dad.y -= 80;
 			case 'school':
-				boyfriend.x += 250;
+				boyfriend.x += 240;
 				boyfriend.y += 220;
-				gf.x += 200;
+				gf.x += 190;
 				gf.y += 320;
-			case 'schoolEvil':
-				if(FlxG.save.data.distractions){
-				// trailArea.scrollFactor.set();
-				var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
-				// evilTrail.changeValuesEnabled(false, false, false, false);
-				// evilTrail.changeGraphic()
-				add(evilTrail);
-				// evilTrail.scrollFactor.set(1.1, 1.1);
 				}
 
 
@@ -878,7 +870,7 @@ class PlayState extends MusicBeatState
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
 			'health', 0, 2);
 		healthBar.scrollFactor.set();
-		healthBar.createFilledBar(0xFF524469, 0xFFC0B2D7);
+		healthBar.createFilledBar(0xFFEF004B, 0xFF84497F);
 		// healthBar
 		add(healthBar);
 
@@ -958,6 +950,14 @@ class PlayState extends MusicBeatState
 				case 'glurns':
 					FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
+          if(FlxG.save.data.distractions){
+    				// trailArea.scrollFactor.set();
+    				var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
+    				// evilTrail.changeValuesEnabled(false, false, false, false);
+    				// evilTrail.changeGraphic()
+    				add(evilTrail);
+    				// evilTrail.scrollFactor.set(1.1, 1.1);
+          }
 				default:
 					startCountdown();
 			}
