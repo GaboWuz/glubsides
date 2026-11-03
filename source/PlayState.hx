@@ -735,7 +735,7 @@ class PlayState extends MusicBeatState
         dad.y += 290;
 
         boyfriend.x += 600;
-        gf.x += 480;
+        gf.x += 460;
         dad.x += 400;
         
 			case 'limo':
@@ -753,15 +753,21 @@ class PlayState extends MusicBeatState
 				boyfriend.x += 320;
 				dad.y -= 80;
 			case 'school':
-				boyfriend.x += 240;
+				boyfriend.x += 230;
 				boyfriend.y += 220;
-				gf.x += 190;
+				gf.x += 182;
 				gf.y += 320;
     }
 
 		add(gf);
 
 		// Shitty layering but whatev it works LOL
+    if (SONG.song.toLowerCase() == 'glurns')
+      if(FlxG.save.data.distractions){
+          var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
+          add(evilTrail);
+        }
+    
 		if (curStage == 'limo')
 			add(limo);
 
@@ -841,7 +847,7 @@ class PlayState extends MusicBeatState
 				songPosBar = new FlxBar(songPosBG.x + 4, songPosBG.y + 4, LEFT_TO_RIGHT, Std.int(songPosBG.width - 8), Std.int(songPosBG.height - 8), this,
 					'songPositionBar', 0, 90000);
 				songPosBar.scrollFactor.set();
-        songPosBar.createFilledBar(0xFF86789D, 0xFF9C8EB3);
+        songPosBar.createFilledBar(FlxColor.GRAY, 0xFF84497F);
 				add(songPosBar);
 	
 				var songName = new FlxText(songPosBG.x + (songPosBG.width / 2) - 20,songPosBG.y,0,SONG.song, 16);
@@ -863,7 +869,7 @@ class PlayState extends MusicBeatState
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
 			'health', 0, 2);
 		healthBar.scrollFactor.set();
-		healthBar.createFilledBar(0xFFEF004B, 0xFF84497F);
+		healthBar.createFilledBar(FlxColor.WHITE, 0xFF84497F);
 		// healthBar
 		add(healthBar);
 
@@ -943,14 +949,6 @@ class PlayState extends MusicBeatState
 				case 'glurns':
 					FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
-          if(FlxG.save.data.distractions){
-    				// trailArea.scrollFactor.set();
-    				var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
-    				// evilTrail.changeValuesEnabled(false, false, false, false);
-    				// evilTrail.changeGraphic()
-    				add(evilTrail);
-    				// evilTrail.scrollFactor.set(1.1, 1.1);
-          }
 				default:
 					startCountdown();
 			}
@@ -1220,7 +1218,7 @@ class PlayState extends MusicBeatState
 				'songPositionBar', 0, songLength - 1000);
 			songPosBar.numDivisions = 1000;
 			songPosBar.scrollFactor.set();
-			songPosBar.createFilledBar(0xFF86789D, 0xFF9C8EB3);
+			songPosBar.createFilledBar(FlxColor.GRAY, 0xFF84497F);
 			add(songPosBar);
 
 			var songName = new FlxText(songPosBG.x + (songPosBG.width / 2) - 20,songPosBG.y,0,SONG.song, 16);
@@ -1873,6 +1871,7 @@ class PlayState extends MusicBeatState
 									if(!triggeredAlready)
 									{
 										gf.playAnim('cheer');
+                    FlxG.sound.play(Paths.soundRandom('hey_', 1, 3));
 										triggeredAlready = true;
 									}
 								}else triggeredAlready = false;
@@ -3350,6 +3349,7 @@ class PlayState extends MusicBeatState
 		if (curBeat % 8 == 7 && curSong == 'Glupeebo')
 		{
 			boyfriend.playAnim('hey', true);
+      FlxG.sound.play(Paths.soundRandom('hey_', 1, 2, 3));
 		}
 
 		if (curBeat % 16 == 15 && SONG.song == 'Tutorial' && dad.curCharacter == 'gf' && curBeat > 16 && curBeat < 48)
