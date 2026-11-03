@@ -731,11 +731,11 @@ class PlayState extends MusicBeatState
 		{
       case 'halloween':
 				boyfriend.y += 280;
-        gf.y += 195;
+        gf.y += 250;
         dad.y += 290;
 
         boyfriend.x += 600;
-        gf.x += 560;
+        gf.x += 500;
         dad.x += 400;
         
 			case 'limo':
@@ -753,9 +753,9 @@ class PlayState extends MusicBeatState
 				boyfriend.x += 320;
 				dad.y -= 80;
 			case 'school':
-				boyfriend.x += 220;
+				boyfriend.x += 250;
 				boyfriend.y += 220;
-				gf.x += 190;
+				gf.x += 200;
 				gf.y += 320;
 			case 'schoolEvil':
 				if(FlxG.save.data.distractions){

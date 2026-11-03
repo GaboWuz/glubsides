@@ -1,3 +1,4 @@
+gtest:bf-pixel:0
 Gluborial:gf:1
 Glupeeboo:dad:1
 Glesher:dad:1
