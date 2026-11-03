@@ -1871,7 +1871,7 @@ class PlayState extends MusicBeatState
 									if(!triggeredAlready)
 									{
 										gf.playAnim('cheer');
-                    FlxG.sound.play(Paths.soundRandom('hey_', 1, 3));
+                    FlxG.sound.play(Paths.soundRandom('hey_', 2, 3));
 										triggeredAlready = true;
 									}
 								}else triggeredAlready = false;
@@ -3349,7 +3349,7 @@ class PlayState extends MusicBeatState
 		if (curBeat % 8 == 7 && curSong == 'Glupeebo')
 		{
 			boyfriend.playAnim('hey', true);
-      FlxG.sound.play(Paths.soundRandom('hey_', 1, 2, 3));
+      FlxG.sound.play(Paths.soundRandom('hey_', 1, 3));
 		}
 
 		if (curBeat % 16 == 15 && SONG.song == 'Tutorial' && dad.curCharacter == 'gf' && curBeat > 16 && curBeat < 48)
