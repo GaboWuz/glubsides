@@ -775,6 +775,11 @@ class PlayState extends MusicBeatState
 		// REPOSITIONING PER STAGE
 		switch (curStage)
 		{
+      case 'stage':
+				boyfriend.x += 350;
+        gf.x += 43;
+        gf.y -= 50;
+
       case 'halloween':
 				boyfriend.y += 280;
         gf.y += 250;
