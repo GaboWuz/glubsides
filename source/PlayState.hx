@@ -643,13 +643,20 @@ class PlayState extends MusicBeatState
             lights.active = false;
             add(lights);
           
-            effect = new FlxSprite(-600, -400).loadGraphic(Paths.image('background/week1/light'));
+            backeffect = new FlxSprite(-600, -400).loadGraphic(Paths.image('background/week1/lightBack'));
+            backeffect.setGraphicSize(Std.int(backeffect.width * 1.1));
+            backeffect.updateHitbox();
+            backeffect.antialiasing = true;
+            backeffect.blend = BlendMode.ADD;
+            backeffect.active = false;
+            add(backeffect);
+          
+            effect = new FlxSprite(-600, -400).loadGraphic(Paths.image('background/week1/lightFront'));
             effect.setGraphicSize(Std.int(effect.width * 1.1));
             effect.updateHitbox();
             effect.antialiasing = true;
             effect.blend = BlendMode.ADD;
             effect.active = false;
-            add(effect);
 			}
 			default:
 			{
@@ -684,7 +691,15 @@ class PlayState extends MusicBeatState
             lights.active = false;
             add(lights);
           
-            effect = new FlxSprite(-600, -400).loadGraphic(Paths.image('background/week1/light'));
+            backeffect = new FlxSprite(-600, -400).loadGraphic(Paths.image('background/week1/lightBack'));
+            backeffect.setGraphicSize(Std.int(backeffect.width * 1.1));
+            backeffect.updateHitbox();
+            backeffect.antialiasing = true;
+            backeffect.blend = BlendMode.ADD;
+            backeffect.active = false;
+            add(backeffect);
+          
+            effect = new FlxSprite(-600, -400).loadGraphic(Paths.image('background/week1/lightFront'));
             effect.setGraphicSize(Std.int(effect.width * 1.1));
             effect.updateHitbox();
             effect.antialiasing = true;
@@ -806,6 +821,9 @@ class PlayState extends MusicBeatState
 
     if (curStage == 'halloween')
         add(whitwfunny);
+
+    if (curStage == 'stage')
+        add(effect);
     
 		if (loadRep)
 		{
