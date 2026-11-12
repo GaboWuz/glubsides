@@ -2042,6 +2042,8 @@ class PlayState extends MusicBeatState
 
 				switch (curStage)
 				{
+          case 'stage':
+            camFollow.x = boyfriend.getMidpoint().x - 300;
           case 'halloween':
             camFollow.x = boyfriend.getMidpoint().x - 400;
 					case 'limo':
