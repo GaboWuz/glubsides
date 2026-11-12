@@ -29,7 +29,7 @@ import flixel.input.FlxKeyManager;
 
 using StringTools;
 
-class KeyBindMenu extends FlxSubState
+class KeyBindMenu extends MusicBeatSubstate
 {
 
     var keyTextDisplay:FlxText;
