@@ -157,6 +157,7 @@ class PlayState extends MusicBeatState
 
 	public var dialogue:Array<String> = ['dad:blah blah blah', 'bf:coolswag'];
   
+  var backeffect:FlxSprite;
   var effect:FlxSprite;
   
 	var whitwfunny:FlxSprite;
