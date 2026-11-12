@@ -156,7 +156,9 @@ class PlayState extends MusicBeatState
 	var currentFrames:Int = 0;
 
 	public var dialogue:Array<String> = ['dad:blah blah blah', 'bf:coolswag'];
-
+  
+  var effect:FlxSprite;
+  
 	var whitwfunny:FlxSprite;
 	var isHalloween:Bool = false;
 
@@ -609,58 +611,86 @@ class PlayState extends MusicBeatState
 					add(bg);
 			}
 			case 'stage':
-				{
-						defaultCamZoom = 0.9;
+			{
+						defaultCamZoom = 0.7;
 						curStage = 'stage';
-						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback'));
-						bg.antialiasing = true;
-						bg.scrollFactor.set(0.9, 0.9);
-						bg.active = false;
-						add(bg);
-	
-						var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront'));
-						stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
-						stageFront.updateHitbox();
-						stageFront.antialiasing = true;
-						stageFront.scrollFactor.set(0.9, 0.9);
-						stageFront.active = false;
-						add(stageFront);
-	
-						var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
-						stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
-						stageCurtains.updateHitbox();
-						stageCurtains.antialiasing = true;
-						stageCurtains.scrollFactor.set(1.3, 1.3);
-						stageCurtains.active = false;
-	
-						add(stageCurtains);
-				}
+						var backstage:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('background/week1/backstage'));
+            backstage.setGraphicSize(Std.int(backstage.width * 1.1));
+            backstage.updateHitbox();
+            backstage.antialiasing = true;
+            backstage.active = false;
+            add(backstage);
+          
+            var grounds:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('background/week1/ground'));
+            grounds.setGraphicSize(Std.int(grounds.width * 1.1));
+            grounds.updateHitbox();
+            grounds.antialiasing = true;
+            grounds.active = false;
+            add(grounds);
+          
+            var curtains:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('background/week1/curtain'));
+            curtains.setGraphicSize(Std.int(curtains.width * 1.1));
+            curtains.updateHitbox();
+            curtains.scrollFactor.set(1.3, 1.3);
+            curtains.antialiasing = true;
+            curtains.active = false;
+            add(curtains);
+          
+            var lights:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('background/week1/lights'));
+            lights.setGraphicSize(Std.int(lights.width * 1.1));
+            lights.updateHitbox();
+            lights.antialiasing = true;
+            lights.active = false;
+            add(lights);
+          
+            effect = new FlxSprite(-600, -400).loadGraphic(Paths.image('background/week1/light'));
+            effect.setGraphicSize(Std.int(effect.width * 1.1));
+            effect.updateHitbox();
+            effect.antialiasing = true;
+            effect.blend = BlendMode.ADD;
+            effect.active = false;
+            add(effect);
+			}
 			default:
 			{
-					defaultCamZoom = 0.9;
-					curStage = 'stage';
-					var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback'));
-					bg.antialiasing = true;
-					bg.scrollFactor.set(0.9, 0.9);
-					bg.active = false;
-					add(bg);
-
-					var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront'));
-					stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
-					stageFront.updateHitbox();
-					stageFront.antialiasing = true;
-					stageFront.scrollFactor.set(0.9, 0.9);
-					stageFront.active = false;
-					add(stageFront);
-
-					var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
-					stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
-					stageCurtains.updateHitbox();
-					stageCurtains.antialiasing = true;
-					stageCurtains.scrollFactor.set(1.3, 1.3);
-					stageCurtains.active = false;
-
-					add(stageCurtains);
+					  defaultCamZoom = 0.7;
+						curStage = 'stage';
+						var backstage:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('background/week1/backstage'));
+            backstage.setGraphicSize(Std.int(backstage.width * 1.1));
+            backstage.updateHitbox();
+            backstage.antialiasing = true;
+            backstage.active = false;
+            add(backstage);
+          
+            var grounds:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('background/week1/ground'));
+            grounds.setGraphicSize(Std.int(grounds.width * 1.1));
+            grounds.updateHitbox();
+            grounds.antialiasing = true;
+            grounds.active = false;
+            add(grounds);
+          
+            var curtains:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('background/week1/curtain'));
+            curtains.setGraphicSize(Std.int(curtains.width * 1.1));
+            curtains.updateHitbox();
+            curtains.scrollFactor.set(1.3, 1.3);
+            curtains.antialiasing = true;
+            curtains.active = false;
+            add(curtains);
+          
+            var lights:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('background/week1/lights'));
+            lights.setGraphicSize(Std.int(lights.width * 1.1));
+            lights.updateHitbox();
+            lights.antialiasing = true;
+            lights.active = false;
+            add(lights);
+          
+            effect = new FlxSprite(-600, -400).loadGraphic(Paths.image('background/week1/light'));
+            effect.setGraphicSize(Std.int(effect.width * 1.1));
+            effect.updateHitbox();
+            effect.antialiasing = true;
+            effect.blend = BlendMode.ADD;
+            effect.active = false;
+            add(effect);
 			}
 		}
 		var gfVersion:String = 'gf';
